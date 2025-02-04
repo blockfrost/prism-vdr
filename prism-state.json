@@ -11160,6 +11160,31 @@
       },
       "pb" : "0aef010aec01123a0a06617574682d3110044a2e0a09736563703235366b311221024ad1ab622898da0a6d1e4bb4d5e72e39344778a731e2832aaaa6afc928858047123b0a0769737375652d3110024a2e0a09736563703235366b31122102e7d45deb065234a9894daed7a31ca33eac2eab8de896f7c713dd79e5518bb305123b0a076d61737465723010014a2e0a09736563703235366b3112210384b5c2ad2d78f5c124f2feea00d19ba25eb0019117b4813d5d22beeba598e52f1a340a0f6469643a707269736d3a7465737431120d4c696e6b6564446f6d61696e731a1268747470733a2f2f74657374312e636f6d2f"
     },
+    "597f700ed54e1195be775b05cb7a6a1929cb8b0fb96516b9c06859adc26c7233" : {
+      "tx" : "a177ccb0f5d9dc3a3b611a1ac3263a57e483c27739b43666eea0f94e458da9a9",
+      "prismBlockIndex" : 6453,
+      "prismOperationIndex" : 0,
+      "signedWith" : "master-0",
+      "signature" : "3045022100954d9d9824a36802c1b089829c3574f05797d7eedd2f44ecc7147052315a4e3c022002afd2e36d2954d6b417228807fbcdf61f1f9228e753e02a5536ebdf3be15278",
+      "operation" : {
+        "CreateDidOP" : {
+          "publicKeys" : [
+            {
+              "UncompressedECKey" : {
+                "id" : "master-0",
+                "usage" : "MasterKeyUsage",
+                "curve" : "secp256k1",
+                "x" : "305d9148bf03538168acbae15baf17da3c2cc5c0395db15ce633e75bfd1cd523",
+                "y" : "82f6ba0d8e1c0ea4955f3108258deeba3358a480dfa3d39d6fe8422a00ff9da5"
+              }
+            }
+          ],
+          "services" : [],
+          "context" : []
+        }
+      },
+      "pb" : "0a610a5f125d0a086d61737465722d301001424f0a09736563703235366b311220305d9148bf03538168acbae15baf17da3c2cc5c0395db15ce633e75bfd1cd5231a2082f6ba0d8e1c0ea4955f3108258deeba3358a480dfa3d39d6fe8422a00ff9da5"
+    },
     "2d8a781ea3c65abe01006b437bae2d3f7752ab5c28a5604bbbb187fb8e9547b9" : {
       "tx" : "19270b8aac3469f9cfbc61f0f6e96f8d7cf285a1fc0d3fee77bf24e19accbb0b",
       "prismBlockIndex" : 1037,
@@ -18961,6 +18986,13 @@
         "opHash" : "4dbaf77a8c65266d3e63ff7018a05604ead69b963aac8bcdf0faba67eddbc8d9"
       }
     ],
+    "a177ccb0f5d9dc3a3b611a1ac3263a57e483c27739b43666eea0f94e458da9a9" : [
+      {
+        "b" : 6453,
+        "o" : 0,
+        "opHash" : "597f700ed54e1195be775b05cb7a6a1929cb8b0fb96516b9c06859adc26c7233"
+      }
+    ],
     "846a55ced2fe553a8158f1b69c5b67a05635ee80208db1400c9477688408dec4" : [
       {
         "b" : 5680,
@@ -24174,6 +24206,13 @@
         "b" : 6320,
         "o" : 0,
         "opHash" : "5941674e993dc3bdfedb1e5e35d96a4a397b8ce5c45cdc6ca25c552885811dd1"
+      }
+    ],
+    "did:prism:597f700ed54e1195be775b05cb7a6a1929cb8b0fb96516b9c06859adc26c7233" : [
+      {
+        "b" : 6453,
+        "o" : 0,
+        "opHash" : "597f700ed54e1195be775b05cb7a6a1929cb8b0fb96516b9c06859adc26c7233"
       }
     ],
     "did:prism:cab1e267bf97d1141e6f1214a71f2c583cb357b9a10bb9aac8cbb4bdb623b484" : [
