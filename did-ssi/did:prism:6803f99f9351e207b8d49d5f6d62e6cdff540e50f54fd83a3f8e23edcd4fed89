@@ -1,0 +1,18 @@
+{
+  "did" : "did:prism:6803f99f9351e207b8d49d5f6d62e6cdff540e50f54fd83a3f8e23edcd4fed89",
+  "latestHash" : "6803f99f9351e207b8d49d5f6d62e6cdff540e50f54fd83a3f8e23edcd4fed89",
+  "keys" : [
+    {
+      "UncompressedECKey" : {
+        "id" : "master-0",
+        "usage" : "MasterKeyUsage",
+        "curve" : "secp256k1",
+        "x" : "dd7f67a453e5aa83af0da41f52fb26c8a84e0391ea6d9f05b5ffe05147af82f6",
+        "y" : "ea74a98b088583c9c9dc99b7835d6815c5bceeb94ed4f34e2f1c6b9421431db7"
+      }
+    }
+  ],
+  "services" : [],
+  "context" : [],
+  "disabled" : false
+}

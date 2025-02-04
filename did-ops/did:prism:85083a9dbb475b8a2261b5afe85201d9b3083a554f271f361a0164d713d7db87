@@ -1,0 +1,43 @@
+{
+  "tx" : "736e633be1b183b301058599f5a8b7ee413f2152d0637cf79d0f8cf0d1facc00",
+  "prismBlockIndex" : 6433,
+  "prismOperationIndex" : 0,
+  "signedWith" : "master-0",
+  "signature" : "de319b8ffc13b82d062a6af10fb2774f24b27f920d9ac2b0e9b006eeefcf780b2cb1359b5f251728b0552aae0b009f5b0b17dc714ae6ec682fbbfa19459af7eb",
+  "operation" : {
+    "CreateDidOP" : {
+      "publicKeys" : [
+        {
+          "UncompressedECKey" : {
+            "id" : "master-0",
+            "usage" : "MasterKeyUsage",
+            "curve" : "secp256k1",
+            "x" : "ccca691b784b301789c2d778c78d39505fd520e18bc8e82fdb4350e5b3f1258e",
+            "y" : "0dd890009d282d73533f135ed0535af0127825f7552051abac5ba2e7e77f9d7d"
+          }
+        },
+        {
+          "UncompressedECKey" : {
+            "id" : "authentication-0",
+            "usage" : "AuthenticationKeyUsage",
+            "curve" : "secp256k1",
+            "x" : "3bda5122dc089c4edadd1a03436e34d47b5f422d5b120b4aa5fcf34b1bcb5f",
+            "y" : ""
+          }
+        },
+        {
+          "UncompressedECKey" : {
+            "id" : "issuing-0",
+            "usage" : "IssuingKeyUsage",
+            "curve" : "secp256k1",
+            "x" : "2890c2c153cbd6ccea74a40b725b12542445187b20580c6b90e44ddfaa5967",
+            "y" : ""
+          }
+        }
+      ],
+      "services" : [],
+      "context" : []
+    }
+  },
+  "pb" : "0ae3010ae001125d0a086d61737465722d301001424f0a09736563703235366b311220ccca691b784b301789c2d778c78d39505fd520e18bc8e82fdb4350e5b3f1258e1a200dd890009d282d73533f135ed0535af0127825f7552051abac5ba2e7e77f9d7d12420a1061757468656e7469636174696f6e2d301004422c0a09736563703235366b31121f3bda5122dc089c4edadd1a03436e34d47b5f422d5b120b4aa5fcf34b1bcb5f123b0a0969737375696e672d301002422c0a09736563703235366b31121f2890c2c153cbd6ccea74a40b725b12542445187b20580c6b90e44ddfaa5967"
+}

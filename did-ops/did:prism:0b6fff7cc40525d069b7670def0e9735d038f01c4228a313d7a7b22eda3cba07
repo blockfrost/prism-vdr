@@ -1,0 +1,25 @@
+{
+  "tx" : "557e6d637a6d5a2e9b404c90414da5b50d6be9a8f05a477a28103cb9653370cb",
+  "prismBlockIndex" : 6440,
+  "prismOperationIndex" : 0,
+  "signedWith" : "master-0",
+  "signature" : "3045022100928793a526db6a6b032bafc34de891916aca05717fec26244ea70ed754220c4902205c68f14359d56f53ccda909012b955e25d3d7ca432b78e4437d2d735fb634ad1",
+  "operation" : {
+    "CreateDidOP" : {
+      "publicKeys" : [
+        {
+          "UncompressedECKey" : {
+            "id" : "master-0",
+            "usage" : "MasterKeyUsage",
+            "curve" : "secp256k1",
+            "x" : "45a4defd12c26dbb1ec90cc540c7b67b2be67ef062c207ca474a408989a74aec",
+            "y" : "381dfe21954a316eae67aa61f843da203d021268f372d80ce80f607730216626"
+          }
+        }
+      ],
+      "services" : [],
+      "context" : []
+    }
+  },
+  "pb" : "0a610a5f125d0a086d61737465722d301001424f0a09736563703235366b31122045a4defd12c26dbb1ec90cc540c7b67b2be67ef062c207ca474a408989a74aec1a20381dfe21954a316eae67aa61f843da203d021268f372d80ce80f607730216626"
+}
