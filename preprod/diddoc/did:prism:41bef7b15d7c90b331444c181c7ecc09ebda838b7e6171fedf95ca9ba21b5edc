@@ -1,0 +1,17 @@
+{
+  "id" : "did:prism:41bef7b15d7c90b331444c181c7ecc09ebda838b7e6171fedf95ca9ba21b5edc",
+  "authentication" : [
+    {
+      "id" : "did:prism:41bef7b15d7c90b331444c181c7ecc09ebda838b7e6171fedf95ca9ba21b5edc#auth-1",
+      "controller" : "did:prism:41bef7b15d7c90b331444c181c7ecc09ebda838b7e6171fedf95ca9ba21b5edc",
+      "type" : "JsonWebKey2020",
+      "publicKeyJwk" : {
+        "kty" : "EC",
+        "crv" : "secp256k1",
+        "x" : "HFU3JeUJPMchnNUxzzRQ2r_FUrcZdS7P1BCnUHeReiM",
+        "y" : "0YB5Lp3eP0V2uAKhUag01wN-5vrQrqwcCi_vYbbr8wk",
+        "kid" : "did:prism:41bef7b15d7c90b331444c181c7ecc09ebda838b7e6171fedf95ca9ba21b5edc#auth-1"
+      }
+    }
+  ]
+}
