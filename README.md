@@ -40,15 +40,17 @@ drwxr-xr-x  65535 fabio  staff   8.3M Feb 11 20:55 ssi
 ```
 
 Using the normal FileSystem as storage is also super inefficient.
-From 8.3 MB of uncompressed text into 1.0G in used space... This could also be optimized with special file types.
-Hopefully git is very efficient. So this use case is fine.
-But the GitHub interface would probably complain about the number of files. We could have a hushing table structure like using folders for this!
+From 8.3 MB of uncompressed text to 1.0G in used space... This could also be optimized with special file types.
+Hopefully git is very efficient. So this use case is fine. Although there are Git commands that we should avoid because they take time.
+But the GitHub interface would probably complain about the number of files. We could have a hashing table structure like using folders for this!
 
-The idea of using Github actions may be more complicated because of this.
+The idea of using GitHub Actions may be more complicated because of this.
 Probably we need to do some optimizations in terms of FileSystem or craft the cache of the action very carefully.
 
 
 We also have the problem of large files
+I don't want to use Git LFS (is not a good use case). Since those files are not assets they are mutable datasets!
+So the solution will be to have logic to split file in code.
 
 ```shell
 -rw-r--r--      1 fabio  staff    42M Feb 11 22:09 cardano-21325-cbor-a
