@@ -66,16 +66,36 @@ drwxr-xr-x  65535 fabio  staff   8.3M Feb 11 20:55 ops
 -rw-r--r--      1 fabio  staff    23M Feb 11 22:19 prism-events-f
 ```
 
+## TODO
+
+- Maybe merge folder `opid` and `ops` => opid just have the extra hash of the operation.
+  But the index is the same.
+- Fetch relevant transactions and store info about it.
+- split the raw files (support in code):
+  - cardano-21325-cbor
+  - prism-events
+- Remove the support for cbor metadata and that encodes PRISM operation using text (hex).
+- Support a hot index start. (Right now, it only starts from scratch)
+- PoC for a GitHub Action
+- The folder diddoc have the DID Document but maybe would be more useful to replace with the did-resolution-result https://w3c.github.io/did-resolution/#did-resolution-result
+  - the field `didResolutionMetadata` ... will be contraceptive that can be empty
+  - the field `didDocumentMetadata` can have many useful fields: https://w3c.github.io/did-resolution/#did-document-metadata
+    - created, updated, deactivated
+- support for transactions with multiple labels (assuming this is possible)
+
+
 ## Folder structure utils
 
 ```shell
-rm cardano-21325-cbor
-rm prism-events
+#rm -rf cardano-21325
+rm -rf prism-events
 rm -rf diddoc
 rm -rf opid
 rm -rf ops
 rm -rf ssi
 
+mkdir cardano-21325
+mkdir prism-events
 mkdir diddoc
 mkdir opid
 mkdir ops
