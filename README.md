@@ -82,7 +82,13 @@ drwxr-xr-x  65535 fabio  staff   8.3M Feb 11 20:55 ops
   - the field `didDocumentMetadata` can have many useful fields: https://w3c.github.io/did-resolution/#did-document-metadata
     - created, updated, deactivated
 - support for transactions with multiple labels (assuming this is possible)
+- Missing Index is the OperationHash -> Previous Operation Hash (if existing)
 
+### Github Action
+
+- Cache - https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy
+- Cache - https://graphite.dev/guides/github-actions-caching
+- Docker - https://aschmelyun.com/blog/using-docker-run-inside-of-github-actions/
 
 ## Folder structure utils
 
@@ -90,14 +96,14 @@ drwxr-xr-x  65535 fabio  staff   8.3M Feb 11 20:55 ops
 #rm -rf cardano-21325
 rm -rf prism-events
 rm -rf diddoc
-rm -rf opid
+#rm -rf opid
 rm -rf ops
 rm -rf ssi
 
 mkdir cardano-21325
 mkdir prism-events
 mkdir diddoc
-mkdir opid
+#mkdir opid
 mkdir ops
 mkdir ssi
 ```
