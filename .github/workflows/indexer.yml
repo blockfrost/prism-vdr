@@ -30,7 +30,7 @@ jobs:
         id: network
         run: |
           USER_INPUT=${{ github.event.inputs.network }}
-          echo "::set-output network=value::${USER_INPUT:-"mainnet"}"
+          run: echo "network=${USER_INPUT:-"mainnet"}" >> $GITHUB_OUTPUT
 
       - uses: actions/cache@v4
         with:
