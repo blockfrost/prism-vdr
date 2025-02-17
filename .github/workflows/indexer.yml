@@ -26,7 +26,10 @@ jobs:
         - mainnet:/data
       #options: --cpus 1
     steps:
-      # https://github.com/japgolly/setup-everything-scala
+      # - uses: actions/cache@v4
+      #   with:
+      #     path: .
+      #     key: cache-git
       - uses: actions/checkout@v4
         # with:
         #   fetch-depth: 0 # Needed for the release tag // `git fetch --tags` will also work
@@ -39,4 +42,3 @@ jobs:
       - run: |
           pwd
           ls -la
-          git status
