@@ -12,17 +12,19 @@ on:
         options: 
         - mainnet
         - preprod
-
+  push:
+    branches: [master]
+    tags: ["v*"]
 
 jobs:
   indexer-job:
     name: Indexer job
     runs-on: ubuntu-latest
-    container:
-      image: fmgp/prism-indexer:latest
-      #env:
-      #volumes:
-      #options: --cpus 1
+    # container:
+    #   image: fmgp/prism-indexer:latest
+    #   #env:
+    #   #volumes:
+    #   #options: --cpus 1
     steps:
       - uses: actions/cache@v4
         with:
