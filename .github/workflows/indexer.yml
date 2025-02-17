@@ -33,5 +33,5 @@ jobs:
       - run: |
           ls -la
       - name: Indexer
-        run: java -XX:+UseContainerSupport -jar prism-indexer.jar /data mainnet ${{ secrets.APIKEY }}
+        run: java -XX:+UseContainerSupport -jar prism-indexer.jar /${{inputs.network}} ${{inputs.network}} ${{ secrets.APIKEY }}
         #docker run --rm -it --entrypoint "sh" --memory="300m" --cpus="1.0" --volume ./mainnet:/data fmgp/prism-indexer -c "java -XX:+UseContainerSupport -jar prism-indexer.jar /data mainnet $APIKEY"
