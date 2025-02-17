@@ -26,6 +26,12 @@ jobs:
     #   #volumes:
     #   #options: --cpus 1
     steps:
+      - name: Set network output
+        id: network
+        run: |
+          USER_INPUT=${{ github.event.inputs.network }}
+          echo "::set-output network=value::${USER_INPUT:-"mainnet"}"
+
       - uses: actions/cache@v4
         with:
           path: .
@@ -40,14 +46,14 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
             image: fmgp/prism-indexer:latest
-            options: -v ${{ github.workspace }}/${{inputs.network}}:/data
+            options: -v ${{ github.workspace }}/${{ steps.network.outputs.value }}:/data
             run: |
               pwd
               ls -la
               ls -la data/
-              java -XX:+UseContainerSupport -jar /prism-indexer.jar ./data ${{inputs.network}} ${{ secrets.APIKEY }}
+              java -XX:+UseContainerSupport -jar /prism-indexer.jar ./data ${{ steps.network.outputs.value }} ${{ secrets.APIKEY }}
       # - name: Indexer
-      #   run: java -XX:+UseContainerSupport -jar /prism-indexer.jar ./${{inputs.network}} ${{inputs.network}} ${{ secrets.APIKEY }}
+      #   run: java -XX:+UseContainerSupport -jar /prism-indexer.jar ./${{ steps.network.outputs.value }} ${{ steps.network.outputs.value }} ${{ secrets.APIKEY }}
         #docker run --rm -it --entrypoint "sh" --memory="300m" --cpus="1.0" --volume ./mainnet:/data fmgp/prism-indexer -c "java -XX:+UseContainerSupport -jar prism-indexer.jar /data mainnet $APIKEY"
       - run: |
           git status
@@ -55,7 +61,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         id: auto-commit-action
         with:
-          commit_message: Indexer job (${{inputs.network}})
+          commit_message: Indexer job (${{ steps.network.outputs.value }})
       - name: "Run if changes have been detected"
         if: steps.auto-commit-action.outputs.changes_detected == 'true'
         run: echo "Changes!"
