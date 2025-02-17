@@ -39,7 +39,7 @@ jobs:
       - name: Run Indexer inside Docker
         uses: addnab/docker-run-action@v3
         with:
-            image: aschmelyun/cleaver:latest
+            image: fmgp/prism-indexer:latest
             options: -v ${{ github.workspace }}/${{inputs.network}}:/data
             run: |
               pwd
