@@ -96,14 +96,12 @@ drwxr-xr-x  65535 fabio  staff   8.3M Feb 11 20:55 ops
 #rm -rf cardano-21325
 rm -rf prism-events
 rm -rf diddoc
-#rm -rf opid
 rm -rf ops
 rm -rf ssi
 
 mkdir cardano-21325
 mkdir prism-events
 mkdir diddoc
-#mkdir opid
 mkdir ops
 mkdir ssi
 ```

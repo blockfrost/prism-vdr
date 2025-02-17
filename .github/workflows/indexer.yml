@@ -1,0 +1,37 @@
+name: PRISM Indexer
+run-name: PRISM Indexer
+
+on:
+  workflow_dispatch:
+    inputs:
+      network:
+        description: "network: mainnet|preprod"
+        required: true
+        type: choice
+        default: 'mainnet'
+        options: 
+        - mainnet
+        - preprod
+
+
+jobs:
+  indexer-job:
+    name: Indexer job
+    runs-on: ubuntu-latest
+    container:
+      image: fmgp/prism-indexer:latest
+      #env:
+      #  NODE_ENV: development
+      volumes:
+        - mainnet:/data
+      #options: --cpus 1
+    steps:
+      # https://github.com/japgolly/setup-everything-scala
+      - uses: actions/checkout@v3
+        # with:
+        #   fetch-depth: 0 # Needed for the release tag // `git fetch --tags` will also work
+      - run: |
+          ls -la
+      - name: Indexer
+        run: java -XX:+UseContainerSupport -jar prism-indexer.jar /data mainnet ${{ secrets.APIKEY }}
+        #docker run --rm -it --entrypoint "sh" --memory="300m" --cpus="1.0" --volume ./mainnet:/data fmgp/prism-indexer -c "java -XX:+UseContainerSupport -jar prism-indexer.jar /data mainnet $APIKEY"
