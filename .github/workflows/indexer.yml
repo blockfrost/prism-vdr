@@ -21,15 +21,13 @@ jobs:
     container:
       image: fmgp/prism-indexer:latest
       #env:
-      #  NODE_ENV: development
-      volumes:
-        - mainnet:/data
+      #volumes:
       #options: --cpus 1
     steps:
-      # - uses: actions/cache@v4
-      #   with:
-      #     path: .
-      #     key: cache-git
+      - uses: actions/cache@v4
+        with:
+          path: .
+          key: cache-git
       - uses: actions/checkout@v4
         # with:
         #   fetch-depth: 0 # Needed for the release tag // `git fetch --tags` will also work
