@@ -34,8 +34,18 @@ jobs:
       - run: |
           pwd
           ls -la
-      - name: Indexer
-        run: java -XX:+UseContainerSupport -jar /prism-indexer.jar ./${{inputs.network}} ${{inputs.network}} ${{ secrets.APIKEY }}
+      - name: Run Indexer inside Docker
+        uses: addnab/docker-run-action@v3
+        with:
+            image: aschmelyun/cleaver:latest
+            options: -v ${{ github.workspace }}/${{inputs.network}}:/data
+            run: |
+              pwd
+              ls -la
+              ls -la data/
+              java -XX:+UseContainerSupport -jar /prism-indexer.jar ./data ${{inputs.network}} ${{ secrets.APIKEY }}
+      # - name: Indexer
+      #   run: java -XX:+UseContainerSupport -jar /prism-indexer.jar ./${{inputs.network}} ${{inputs.network}} ${{ secrets.APIKEY }}
         #docker run --rm -it --entrypoint "sh" --memory="300m" --cpus="1.0" --volume ./mainnet:/data fmgp/prism-indexer -c "java -XX:+UseContainerSupport -jar prism-indexer.jar /data mainnet $APIKEY"
       - run: |
           pwd
