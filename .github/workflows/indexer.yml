@@ -1,5 +1,5 @@
 name: PRISM Indexer
-run-name: PRISM Indexer
+run-name: PRISM Indexer ${{ inputs.network || 'mainnet' }}
 
 on:
   workflow_dispatch:
@@ -14,9 +14,6 @@ on:
         - preprod
   schedule:
     - cron: "0 * * * *" # Every hour
-  # push:
-  #   branches: [master,main]
-  #   tags: ["v*"]
 
 jobs:
   indexer-job:
@@ -44,9 +41,6 @@ jobs:
             image: fmgp/prism-indexer:latest
             options: -v ${{ github.workspace }}/${{ inputs.network || 'mainnet' }}:/data
             run: java -XX:+UseContainerSupport -jar /prism-indexer.jar ./data ${{inputs.network || 'mainnet'}} ${{ secrets.APIKEY }}
-      # - name: Indexer
-      #   run: java -XX:+UseContainerSupport -jar /prism-indexer.jar ./${{inputs.network || 'mainnet'}} ${{inputs.network || 'mainnet'}} ${{ secrets.APIKEY }}
-        #docker run --rm -it --entrypoint "sh" --memory="300m" --cpus="1.0" --volume ./mainnet:/data fmgp/prism-indexer -c "java -XX:+UseContainerSupport -jar prism-indexer.jar /data mainnet $APIKEY"
       - run: |
           rm semicolon_delimited_script #cleanup addnab/docker-run-action action
           git status
