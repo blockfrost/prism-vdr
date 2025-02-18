@@ -38,19 +38,12 @@ jobs:
       - uses: actions/checkout@v4
         # with:
         #   fetch-depth: 0 # Needed for the release tag // `git fetch --tags` will also work
-      - run: |
-          pwd
-          ls -la
       - name: Run Indexer inside Docker
         uses: addnab/docker-run-action@v3
         with:
             image: fmgp/prism-indexer:latest
             options: -v ${{ github.workspace }}/${{ inputs.network || 'mainnet' }}:/data
-            run: |
-              pwd
-              ls -la
-              ls -la data/
-              java -XX:+UseContainerSupport -jar /prism-indexer.jar ./data ${{inputs.network || 'mainnet'}} ${{ secrets.APIKEY }}
+            run: java -XX:+UseContainerSupport -jar /prism-indexer.jar ./data ${{inputs.network || 'mainnet'}} ${{ secrets.APIKEY }}
       # - name: Indexer
       #   run: java -XX:+UseContainerSupport -jar /prism-indexer.jar ./${{inputs.network || 'mainnet'}} ${{inputs.network || 'mainnet'}} ${{ secrets.APIKEY }}
         #docker run --rm -it --entrypoint "sh" --memory="300m" --cpus="1.0" --volume ./mainnet:/data fmgp/prism-indexer -c "java -XX:+UseContainerSupport -jar prism-indexer.jar /data mainnet $APIKEY"
