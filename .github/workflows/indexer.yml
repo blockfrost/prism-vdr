@@ -12,8 +12,8 @@ on:
         options: 
         - mainnet
         - preprod
-  schedule: # Every hour
-    - cron: "* */1 * * *"
+  schedule:
+    - cron: "0 * * * *" # Every hour
   # push:
   #   branches: [master,main]
   #   tags: ["v*"]
@@ -48,6 +48,7 @@ jobs:
       #   run: java -XX:+UseContainerSupport -jar /prism-indexer.jar ./${{inputs.network || 'mainnet'}} ${{inputs.network || 'mainnet'}} ${{ secrets.APIKEY }}
         #docker run --rm -it --entrypoint "sh" --memory="300m" --cpus="1.0" --volume ./mainnet:/data fmgp/prism-indexer -c "java -XX:+UseContainerSupport -jar prism-indexer.jar /data mainnet $APIKEY"
       - run: |
+          rm semicolon_delimited_script #cleanup addnab/docker-run-action action
           git status
 
       - uses: stefanzweifel/git-auto-commit-action@v5
