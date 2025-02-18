@@ -12,9 +12,11 @@ on:
         options: 
         - mainnet
         - preprod
-  push:
-    branches: [master,main]
-    tags: ["v*"]
+  schedule: # Every hour
+    - cron: "* */1 * * *"
+  # push:
+  #   branches: [master,main]
+  #   tags: ["v*"]
 
 jobs:
   indexer-job:
