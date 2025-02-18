@@ -1,0 +1,1 @@
+java -XX:+UseContainerSupport -jar /prism-indexer.jar ./data mainnet mainnetpfwHjPZPaTmlyJOJ8oIdpVw4v5EwYdQL
