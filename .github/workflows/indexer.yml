@@ -5,42 +5,36 @@ on:
   workflow_dispatch:
     inputs:
       network:
-        description: "network: mainnet|preprod"
+        description: "network: mainnet|preview|preprod"
         required: true
         type: choice
         default: 'mainnet'
         options: 
         - mainnet
+        - preview
         - preprod
   schedule:
-    - cron: "0 * * * *" # Every hour
+    - cron: "*/5 * * * *"
 
 jobs:
   indexer-job:
     name: Indexer job
     runs-on: ubuntu-latest
     permissions:
-      # Give the default GITHUB_TOKEN write permission to commit and push the added or changed files to the repository.
       contents: write
-    # container:
-    #   image: fmgp/prism-indexer:latest
-    #   #env:
-    #   #volumes:
-    #   #options: --cpus 1
     steps:
       - uses: actions/cache@v4
         with:
           path: .
           key: cache-git
       - uses: actions/checkout@v4
-        # with:
-        #   fetch-depth: 0 # Needed for the release tag // `git fetch --tags` will also work
       - name: Run Indexer inside Docker
         uses: addnab/docker-run-action@v3
         with:
             image: fmgp/prism-indexer:latest
             options: -v ${{ github.workspace }}/${{ inputs.network || 'mainnet' }}:/data
-            run: java -XX:+UseContainerSupport -jar /prism-indexer.jar ./data ${{inputs.network || 'mainnet'}} ${{ secrets.APIKEY }}
+            run: |
+              java -XX:+UseContainerSupport -jar /prism-indexer.jar ./data ${{ inputs.network || 'mainnet' }} ${{ inputs.network == 'mainnet' && secrets.BLOCKFROST_APIKEY_MAINNET || inputs.network == 'preview' && secrets.BLOCKFROST_APIKEY_PREVIEW || secrets.BLOCKFROST_APIKEY_PREPROD }}
       - run: |
           rm semicolon_delimited_script #cleanup addnab/docker-run-action action
           git status
